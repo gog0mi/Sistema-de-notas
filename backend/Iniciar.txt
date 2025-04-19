@@ -1,0 +1,72 @@
+Asegurarse de estar trabajando siempre en \backend , para eso:
+cd .\Backend\
+
+Asi tiene que verse en terminal:
+Sistema-de-Notas\Backend> 
+
+
+
+
+Entorno virtual:
+pip install virtualenv
+Python -m virtualenv venv
+
+(En caso error porque no están permitidos los scripts: 
+1. Ejecutar windows + R --> gpedit.msc
+2. ir a: Plantillas administrativas> Componentes de Windows> Windows PowerShell>
+3. Seleccionar Activar la ejecución de scripts, click derecho, Editar
+4. Seleccionar en Activar la ejecución de scripts (Habilitada) y en opciones: Directiva de ejecución (Permitir todos los scripts), despues Aplicar y Aceptar.
+5. Reinicia la terminal o VSCode y con eso ya debería poder ejecutar scripts el powershell. Saludos.)
+
+Activar:
+.\venv\Scripts\activate
+(Siempre activarse al trabajar en terminal)
+
+Ejemplo como se ve activado:
+(venv) PS C:\Users\Usuario\Desktop\VSCODE\Proyectos-Practicas\Sistema-de-Notas\Backend> 
+
+
+
+
+Descargar requerimientos:
+pip install -r requirements.txt
+
+
+
+
+(Ya configurado, segun xampp cambiar PORT de ser necesario en drf_mysql\settings.py)
+Conexion a la BD:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'USER': 'root',
+        'PASSWORD': '',
+        'NAME': 'colegio',
+        'OPTIONS':{
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
+    }
+}
+
+
+
+
+Test bd connection:
+python manage.py dbshell
+(En caso de error confirmar que xampp este encendido)
+(Cerrar terminal despues de probar)
+
+
+
+
+Iniciar servidor:
+python manage.py runserver
+
+Ir al puerto credo en navegador e ir a /admin/
+
+Iniciar sesion:
+SUPERUSER:
+username: geraldo
+password: 123456
